@@ -42,6 +42,8 @@ public class InteresSimple extends javax.swing.JFrame {
         textVF = new javax.swing.JTextField();
         btnRegresar = new javax.swing.JToggleButton();
         btnBorrar = new javax.swing.JToggleButton();
+        Interes = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora Financiera");
@@ -51,7 +53,7 @@ public class InteresSimple extends javax.swing.JFrame {
 
         jLabel2.setText("Elija una opcion de calculo:");
 
-        calculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Interes Simple", "Interes Simple (C)", "Interes Simple (M)", "Interes Simple (n)", "Interes Simple (i)", " " }));
+        calculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Interes Simple", "Interes Simple (C)", "Interes Simple (M)", "Interes Simple (n)", "Interes Simple (i)", "Interes simple con I (C)", "Interes simple con I (i)", "Interes simple con I (n)" }));
         calculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calculoActionPerformed(evt);
@@ -103,6 +105,8 @@ public class InteresSimple extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setText("Interes (I)");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,13 +124,23 @@ public class InteresSimple extends javax.swing.JFrame {
                     .addComponent(textVF)
                     .addComponent(calculo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBorrar)
-                    .addComponent(btnRegresar, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(39, 39, 39))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnBorrar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Interes, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                                .addComponent(btnRegresar)))
+                        .addGap(39, 39, 39))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel7)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(196, 196, 196)
                 .addComponent(jLabel1)
@@ -163,11 +177,14 @@ public class InteresSimple extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(textI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textVF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRegresar))
+                    .addComponent(btnRegresar)
+                    .addComponent(Interes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
@@ -209,6 +226,32 @@ public class InteresSimple extends javax.swing.JFrame {
                 i = ((Double.parseDouble(this.textVF.getText())/Double.parseDouble(this.textVA.getText()))-1)/Double.parseDouble(this.textNper.getText());
                 this.textResultado.setText(String.format("%.2f",i));
                 break;
+                
+                
+            case 5:
+                double I = 0;
+                I = ((Double.parseDouble(this.Interes.getText())/(Double.parseDouble(this.textI.getText())* Double.parseDouble(this.textNper.getText()))));
+                this.textResultado.setText(String.format("%.2f",I));
+                break;
+                
+           /* case 6:
+                double i = 0;
+                i = ((Double.parseDouble(this.textVF.getText())/Double.parseDouble(this.textVA.getText()))-1)/Double.parseDouble(this.textNper.getText());
+                this.textResultado.setText(String.format("%.2f",i));
+                break;
+                
+            case 7:
+                double i = 0;
+                i = ((Double.parseDouble(this.textVF.getText())/Double.parseDouble(this.textVA.getText()))-1)/Double.parseDouble(this.textNper.getText());
+                this.textResultado.setText(String.format("%.2f",i));
+                break;*/
+                
+                
+                
+                
+                
+                
+                
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -300,6 +343,7 @@ public class InteresSimple extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Interes;
     private javax.swing.JToggleButton btnBorrar;
     private javax.swing.JToggleButton btnRegresar;
     private javax.swing.JComboBox<String> calculo;
@@ -310,6 +354,7 @@ public class InteresSimple extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField textI;
     private javax.swing.JTextField textNper;
     private javax.swing.JTextField textResultado;

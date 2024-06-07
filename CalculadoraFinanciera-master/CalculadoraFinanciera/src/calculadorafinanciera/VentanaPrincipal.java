@@ -31,11 +31,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnCompuesto = new javax.swing.JToggleButton();
         btnAnualidades = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora Financiera");
 
         btnSimple.setText("Interes Simple");
+        btnSimple.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSimple.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSimpleActionPerformed(evt);
@@ -43,6 +45,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         btnCompuesto.setText("Interes Compuesto");
+        btnCompuesto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCompuesto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompuestoActionPerformed(evt);
@@ -50,6 +53,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         btnAnualidades.setText("Anualidades");
+        btnAnualidades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAnualidades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAnualidadesActionPerformed(evt);
@@ -57,37 +61,46 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         jButton1.setText("Bonos");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\UNSIS\\Documents\\CalculadoraFinanciera-master\\CalculadoraFinanciera-master\\CalculadoraFinanciera\\src\\Imagen\\Fiananzas.png")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCompuesto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSimple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAnualidades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addGap(102, 102, 102)
+                .addComponent(btnSimple, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnCompuesto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAnualidades, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(120, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(178, 178, 178))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(btnSimple)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSimple)
+                    .addComponent(btnCompuesto)
+                    .addComponent(btnAnualidades)
+                    .addComponent(jButton1))
                 .addGap(18, 18, 18)
-                .addComponent(btnCompuesto)
-                .addGap(18, 18, 18)
-                .addComponent(btnAnualidades)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         pack();
@@ -157,5 +170,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnCompuesto;
     private javax.swing.JToggleButton btnSimple;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
