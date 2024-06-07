@@ -5,6 +5,8 @@
  */
 package calculadorafinanciera;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jhon
@@ -17,6 +19,7 @@ public class InteresSimple extends javax.swing.JFrame {
     public InteresSimple() {
         initComponents();
     }
+    double Tiempo;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,6 +47,7 @@ public class InteresSimple extends javax.swing.JFrame {
         btnBorrar = new javax.swing.JToggleButton();
         Interes = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        cmbTiempo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora Financiera");
@@ -107,6 +111,8 @@ public class InteresSimple extends javax.swing.JFrame {
 
         jLabel7.setText("Interes (I)");
 
+        cmbTiempo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Días ", "Semas", "Meses", "Bimestre", "Trimestre", "Cuatrimestre", "Semestre", "Anual", " " }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,36 +120,40 @@ public class InteresSimple extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cmbTiempo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textVA)
-                    .addComponent(textNper, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(textI)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(textVF)
                     .addComponent(calculo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3))
+                .addGap(18, 262, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBorrar))
+                    .addComponent(btnRegresar))
+                .addGap(39, 39, 39))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnBorrar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Interes, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                                .addComponent(btnRegresar)))
-                        .addGap(39, 39, 39))
+                        .addGap(196, 196, 196)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel7)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(196, 196, 196)
-                .addComponent(jLabel1)
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textNper, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(textI)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(textVF))
+                        .addGap(49, 49, 49)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Interes, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -168,24 +178,32 @@ public class InteresSimple extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(textVA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnBorrar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(textNper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(textI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textVF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRegresar)
-                    .addComponent(Interes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(168, 168, 168)
+                        .addComponent(btnRegresar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(cmbTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textNper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(22, 22, 22)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(textI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(textVF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Interes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         pack();
@@ -200,51 +218,114 @@ public class InteresSimple extends javax.swing.JFrame {
     }//GEN-LAST:event_textIActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+       // if( this.calculo.getSelectedIndex()!=6){
+            switch(this.cmbTiempo.getSelectedIndex() /*&& this.calculo.getSelectedIndex()!=6*/){
+            
+            case 0:
+                
+                Tiempo=Double.parseDouble(this.textNper.getText())/360;
+                JOptionPane.showMessageDialog(null, "0");
+                
+                break;
+            
+            case 1: 
+               Tiempo=Double.parseDouble(this.textNper.getText())/52;
+                JOptionPane.showMessageDialog(null, "1");
+                break;
+            
+            
+            case 2:
+                Tiempo=Double.parseDouble(this.textNper.getText())/12;
+                JOptionPane.showMessageDialog(null, "2");
+                break;
+            
+            
+            case 3: 
+               Tiempo=Double.parseDouble(this.textNper.getText())/6;
+                JOptionPane.showMessageDialog(null, "3");
+                break;
+            
+            
+            case 4:
+               Tiempo=Double.parseDouble(this.textNper.getText())/4;
+                JOptionPane.showMessageDialog(null, "4");
+                break;
+            
+            
+            case 5: 
+                Tiempo=Double.parseDouble(this.textNper.getText())/3;
+                JOptionPane.showMessageDialog(null, "5");
+                break;
+            
+            case 6: 
+                Tiempo=Double.parseDouble(this.textNper.getText())/2;
+                JOptionPane.showMessageDialog(null, "6");
+                break;
+                        
+            case 7: 
+                Tiempo=Double.parseDouble(this.textNper.getText())/1;
+                JOptionPane.showMessageDialog(null, "7");
+                break;
+            
+            
+        }
+        
+      /*  }else{
+            
+            Tiempo=Double.parseDouble(this.textNper.getText());
+            JOptionPane.showMessageDialog(null,"Tiempo"+Tiempo);
+            
+        }*/
+        
+        
+        
+        
         switch(this.calculo.getSelectedIndex()){
             case 0:
                 double intSimple = 0;
-                intSimple = Double.parseDouble(this.textVA.getText())*Double.parseDouble(this.textNper.getText())*Double.parseDouble(this.textI.getText());
+                intSimple = Double.parseDouble(this.textVA.getText())*Tiempo*(Double.parseDouble(this.textI.getText())/100);
                 this.textResultado.setText(String.format("%.2f",intSimple));
                 break;
             case 1:
                 double va = 0;
-                va = Double.parseDouble(this.textVF.getText())/(1+(Double.parseDouble(this.textNper.getText())*Double.parseDouble(this.textI.getText())));
+                va = Double.parseDouble(this.textVF.getText())/(1+(Tiempo*(Double.parseDouble(this.textI.getText()))/100 ));
                 this.textResultado.setText(String.format("%.2f",va));
                 break;
             case 2:
                 double vf = 0;
-                vf = Double.parseDouble(this.textVA.getText())*(1+(Double.parseDouble(this.textNper.getText())*Double.parseDouble(this.textI.getText())));
+                vf = Double.parseDouble(this.textVA.getText())*(1+(Tiempo*(Double.parseDouble(this.textI.getText()))/100 ));
                 this.textResultado.setText(String.format("%.2f",vf));
                 break;
             case 3:
                 double nper = 0;
-                nper = ((Double.parseDouble(this.textVF.getText())/Double.parseDouble(this.textVA.getText()))-1)/Double.parseDouble(this.textI.getText());
+                nper = ((Double.parseDouble(this.textVF.getText())/Double.parseDouble(this.textVA.getText()))-1)/(Double.parseDouble(this.textI.getText())/100);
                 this.textResultado.setText(String.format("%.2f",nper));
                 break;
             case 4:
                 double i = 0;
-                i = ((Double.parseDouble(this.textVF.getText())/Double.parseDouble(this.textVA.getText()))-1)/Double.parseDouble(this.textNper.getText());
+                i = ((Double.parseDouble(this.textVF.getText())/Double.parseDouble(this.textVA.getText()))-1)/Tiempo;
                 this.textResultado.setText(String.format("%.2f",i));
                 break;
                 
                 
             case 5:
-                double I = 0;
-                I = ((Double.parseDouble(this.Interes.getText())/(Double.parseDouble(this.textI.getText())* Double.parseDouble(this.textNper.getText()))));
-                this.textResultado.setText(String.format("%.2f",I));
+                double ca = 0;
+                ca = ((Double.parseDouble(this.Interes.getText())/((Double.parseDouble(this.textI.getText())/100)* Tiempo)));
+                this.textResultado.setText(String.format("%.2f",ca));
                 break;
                 
-           /* case 6:
-                double i = 0;
-                i = ((Double.parseDouble(this.textVF.getText())/Double.parseDouble(this.textVA.getText()))-1)/Double.parseDouble(this.textNper.getText());
-                this.textResultado.setText(String.format("%.2f",i));
+            case 6:
+                double in = 0;
+                in = (Double.parseDouble(this.Interes.getText())/(Double.parseDouble(this.textVA.getText())* Tiempo))*100;
+                this.textResultado.setText(String.format("%.2f",in));
                 break;
                 
             case 7:
-                double i = 0;
-                i = ((Double.parseDouble(this.textVF.getText())/Double.parseDouble(this.textVA.getText()))-1)/Double.parseDouble(this.textNper.getText());
-                this.textResultado.setText(String.format("%.2f",i));
-                break;*/
+                double ti = 0;
+                ti = ((Double.parseDouble(this.Interes.getText())/(Double.parseDouble(this.textVA.getText())* (Double.parseDouble(this.textI.getText())/100) )));
+                this.textResultado.setText(String.format("%.2f",ti));
+                break;
                 
                 
                 
@@ -347,6 +428,7 @@ public class InteresSimple extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnBorrar;
     private javax.swing.JToggleButton btnRegresar;
     private javax.swing.JComboBox<String> calculo;
+    private javax.swing.JComboBox<String> cmbTiempo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
